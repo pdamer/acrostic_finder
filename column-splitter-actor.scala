@@ -10,10 +10,11 @@ package acrostic {
     
     def act() {
       loop {
-        react {
+        receive {
           case s: String => {
             for (i <- 0 until 5) {
-              val column = Source.fromFile(s).getLines map {(line: String) => letter_at(line.trim,i)  } mkString ""
+              var column = Source.fromFile(s).getLines map {(line: String) => letter_at(line.trim,i)  } mkString ""
+              //println("created column" + column)
               dictionary! new Column(column, i)
             }
           }
