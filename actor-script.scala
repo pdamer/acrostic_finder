@@ -7,7 +7,7 @@ object AcrosticFinder {
   private val text_file = "test1.txt"
   private val outputter = new Outputter
   
-  def load_words(dictionary_file: String): Array[Lookup] = {
+  def load_words(dictionary_file: String) = {
     val word_list = new mutable.ArrayBuffer[Lookup]()
     
     for (word <- Source.fromFile(dictionary_file).getLines map { _.trim }) {
@@ -17,7 +17,7 @@ object AcrosticFinder {
     }
     
     println("[!] generated " + word_list.size + " dictionary words")
-    return word_list.toArray
+    return word_list
   }
 
   def main(args: Array[String]) {
